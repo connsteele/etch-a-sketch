@@ -24,17 +24,29 @@ function createGrid (count) {
     }
 }
 
-// Use event delegation to add events listen to mouse hover events
-function addSketchHoverEvent() {
-    // mouseenter event bubbles, mouseenter does not
-    divSketcher.addEventListener("mouseover", (e) => {
-        const eventClasses = e.target.classList;
+function setSquareColor(e, color){
+    const eventClasses = e.target.classList;
         
         // Highlight cells
         if (eventClasses.contains("grid-col")) {
-            e.target.style.backgroundColor = "red";
+            e.target.style.backgroundColor = color;
         }
+}
+
+// Use event delegation to add events listen to mouse hover events
+function addSketchHoverEvent() {
+    // mouseover event bubbles, mouseenter does not
+    divSketcher.addEventListener("mouseover", (e) => {
+        const color = "red";
+        setSquareColor(e, color);
     });
+
+    //// mouseout event bubbles, mouseleave does not
+    divSketcher.addEventListener("mouseout", (e) => {
+        const color = "aquamarine";
+        setSquareColor(e, color);
+    });
+
 }
 
 
