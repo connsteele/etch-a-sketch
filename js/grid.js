@@ -5,11 +5,12 @@ const divSketcher = document.querySelector(".sketcher");
 
 // Create a grid of count x count divs
 function createGrid (count) {
-    // Need to do a 2x for loop creating the divs
-    // outer loop will create new rows (parent has flex-direction column)
-    // inner loop should assign into colummns (parent has flex-direction row)
+    // Remove all children and grand children
+    divSketcher.querySelectorAll("*").forEach(node => node.remove());
+        
 
-    // Use event delegation to improve performance!
+
+    // Actually create the grid and add it to the document
     for (let i = 0; i < count ; i++) {
         const divRowEntry = document.createElement("div");
         divRowEntry.setAttribute("class", "grid-row");
@@ -24,6 +25,7 @@ function createGrid (count) {
     }
 }
 
+// Event handler for mouseover and mouseout events
 function setSquareColor(e, color){
     const eventClasses = e.target.classList;
         
@@ -51,7 +53,21 @@ function addSketchHoverEvent() {
 
 }
 
+function hookupGridButton() {
+    btnNewGrid.addEventListener("click", () => {
+        btnNewGrid = document.querySelector("#btnNewGrid");
+        let newGridLength = prompt("Enter the length of the new grid: ");
+        while (typeof +newGridLength != "number" && newGridLength >= 0.5){
+            newGridLength = prompt("ERROR, Enter the length of the new grid: ");
+        }
+
+        const integerLength = Math.round(newGridLength);
+        createGrid(integerLength);
+    });
+}
+
 
 const gridLength = 16; // gridLength x gridLength will be used
 createGrid(gridLength);
 addSketchHoverEvent();
+hookupGridButton();
