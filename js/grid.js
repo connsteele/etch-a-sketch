@@ -38,12 +38,14 @@ function addSketchHoverEvent() {
     // mouseover event bubbles, mouseenter does not
     divSketcher.addEventListener("mouseover", (e) => {
         const color = "red";
+        e.target.style.transition = "background-color 0s ease";
         setSquareColor(e, color);
     });
 
     //// mouseout event bubbles, mouseleave does not
     divSketcher.addEventListener("mouseout", (e) => {
         const color = "aquamarine";
+        e.target.style.transition = "background-color 0.5s ease";
         setSquareColor(e, color);
     });
 
