@@ -10,6 +10,29 @@
 .sketcher {
     display: flex;
     flex-direction: column;
-    /* justify-content: space-evenly; */
+    justify-content: space-evenly;
     gap: 5px;
+}
+
+/* Inserted using DOM into the sketcher div */
+.grid-row {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+/* Inserted using DOM into a grid-row */
+.grid-col {
+    outline: 2px solid black;
+    background-color: aquamarine;
+}
+
+.grid-row,
+.grid-col {
+    margin: 0;
+    padding: 0;
+    flex: 0 0 50px;
+    /* width: 100px;*/
+    /* height: 100px;  */
+    
 }
