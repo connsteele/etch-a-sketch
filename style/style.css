@@ -1,0 +1,15 @@
+
+.header {
+    text-align: center;
+}
+
+.header hr {
+    width: 100%;
+}
+
+.sketcher {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+    gap: 5px;
+}
