@@ -23,6 +23,7 @@
 .grid-row {
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 /* Inserted using DOM into a grid-row */
