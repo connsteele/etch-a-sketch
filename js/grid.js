@@ -56,13 +56,13 @@ function addSketchHoverEvent() {
 function hookupGridButton() {
     btnNewGrid.addEventListener("click", () => {
         btnNewGrid = document.querySelector("#btnNewGrid");
-        let newGridLength = prompt("Enter the length of the new grid: ");
-        while (typeof +newGridLength != "number" && newGridLength >= 0.5){
-            newGridLength = prompt("ERROR, Enter the length of the new grid: ");
+        const inGridSize = prompt("Enter the length of the new grid (size between 1 and 100): ");
+        let inGridInt = parseInt(inGridSize);
+        while (isNaN(inGridInt) || inGridInt < 1 || inGridInt > 100){
+            inGridInt = prompt("ERROR, Enter the length of the new grid (size between 1 and 100): ");
         }
 
-        const integerLength = Math.round(newGridLength);
-        createGrid(integerLength);
+        createGrid(inGridInt);
     });
 }
 
