@@ -24,5 +24,20 @@ function createGrid (count) {
     }
 }
 
+// Use event delegation to add events listen to mouse hover events
+function addSketchHoverEvent() {
+    // mouseenter event bubbles, mouseenter does not
+    divSketcher.addEventListener("mouseover", (e) => {
+        const eventClasses = e.target.classList;
+        
+        // Highlight cells
+        if (eventClasses.contains("grid-col")) {
+            e.target.style.backgroundColor = "red";
+        }
+    });
+}
+
+
 const gridLength = 16; // gridLength x gridLength will be used
 createGrid(gridLength);
+addSketchHoverEvent();

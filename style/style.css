@@ -7,18 +7,22 @@
     width: 100%;
 }
 
+/* Define the space between each div in the etch-a-sketch */
+.sketcher,
+.grid-row {
+    gap: 5px;
+}
+
 .sketcher {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    gap: 5px;
 }
 
 /* Inserted using DOM into the sketcher div */
 .grid-row {
     display: flex;
     flex-direction: row;
-    gap: 5px;
 }
 
 /* Inserted using DOM into a grid-row */
